@@ -1,0 +1,4 @@
+FROM jupyter/scipy-notebook
+MAINTAINER mdagost@gmail.com
+
+RUN pip install keras

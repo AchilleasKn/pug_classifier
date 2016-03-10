@@ -1,0 +1,7 @@
+.DS_Store
+.ipynb_checkpoints
+*.*~
+pugs_raw
+golden_retrievers_raw
+pugs_cropped
+golden_retrievers_cropped
