@@ -1,4 +1,4 @@
-FROM nvidia/cuda:7.5-cudnn4-devel
+FROM nvidia/cuda:7.0-ubuntu14.04
 MAINTAINER mdagost@gmail.com
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get update -y 
@@ -17,7 +17,9 @@ RUN pip install git+git://github.com/Theano/Theano.git --upgrade --no-deps
 RUN pip install matplotlib seaborn 
 RUN pip install jupyter
 
-RUN echo -e "[global]\nmode=FAST_RUN\ndevice=gpu\nfloatX=float32\n" > .theanorc
+RUN echo "[global]\nmode=FAST_RUN\ndevice=gpu\nfloatX=float32\n" > .theanorc
 
+ENV THEANO_FLAGS mode=FAST_RUN,device=gpu,floatX=float32
 EXPOSE 8888
-CMD ["jupyter", "notebook", "--no-browser"]
+WORKDIR /home/ubuntu
+CMD jupyter notebook --no-browser --ip=0.0.0.0
