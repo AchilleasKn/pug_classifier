@@ -1,0 +1,23 @@
+FROM nvidia/cuda:7.5-cudnn4-devel
+MAINTAINER mdagost@gmail.com
+
+RUN DEBIAN_FRONTEND=noninteractive apt-get update -y 
+RUN apt-get install -y software-properties-common curl
+RUN curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | bash
+RUN DEBIAN_FRONTEND=noninteractive \
+  apt-get install -y \
+      htop emacs git python-setuptools python-dev libatlas-dev libatlas-base-dev liblapack-dev \
+      gfortran libatlas3-base build-essential g++ libhdf5-7 libhdf5-dev clang pkg-config libxft2 \
+      libxft2-dev build-essential wget ca-certificates git-lfs
+RUN easy_install pip
+RUN git lfs install
+
+RUN pip install keras
+RUN pip install git+git://github.com/Theano/Theano.git --upgrade --no-deps
+RUN pip install matplotlib seaborn 
+RUN pip install jupyter
+
+RUN echo -e "[global]\nmode=FAST_RUN\ndevice=gpu\nfloatX=float32\n" > .theanorc
+
+EXPOSE 8888
+CMD ["jupyter", "notebook", "--no-browser"]
