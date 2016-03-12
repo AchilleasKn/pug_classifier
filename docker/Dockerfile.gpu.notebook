@@ -8,14 +8,20 @@ RUN DEBIAN_FRONTEND=noninteractive \
   apt-get install -y \
       htop emacs git python-setuptools python-dev libatlas-dev libatlas-base-dev liblapack-dev \
       gfortran libatlas3-base build-essential g++ libhdf5-7 libhdf5-dev clang pkg-config libxft2 \
-      libxft2-dev build-essential wget ca-certificates git-lfs
+      libffi-dev libssl-dev libxft2-dev build-essential wget ca-certificates git-lfs \
+      python3-setuptools python3-dev
 RUN easy_install pip
+RUN easy_install-3.4 pip
 RUN git lfs install
 
-RUN pip install keras
-RUN pip install git+git://github.com/Theano/Theano.git --upgrade --no-deps
-RUN pip install matplotlib seaborn 
-RUN pip install jupyter
+RUN pip3 install cython>=0.21
+RUN pip3 install numpy scipy pandas scikit-learn
+RUN pip3 install scikit-image
+RUN pip3 install keras
+RUN pip3 install git+git://github.com/Theano/Theano.git --upgrade --no-deps
+RUN pip3 install matplotlib seaborn 
+RUN pip3 install jupyter
+RUN ipython3 kernel install
 
 RUN echo "[global]\nmode=FAST_RUN\ndevice=gpu\nfloatX=float32\n" > .theanorc
 

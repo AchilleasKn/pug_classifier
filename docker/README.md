@@ -1,3 +1,6 @@
+CPU
+===
+
 
 GPU
 ===
@@ -10,7 +13,7 @@ docker-machine create --driver amazonec2 --amazonec2-access-key --amazonec2-secr
 SSH in:
 
 ```
-docker-machine ssh awsnotebook
+docker-machine ssh awsgpunotebook
 ```
 
 Setup the GPU following the instructions here: https://github.com/mdagost/MScA_code/blob/master/lecture_08/bootstrap_aws_gpu.sh
@@ -21,6 +24,7 @@ Install `nvidia-docker` like so:
 git clone https://github.com/NVIDIA/nvidia-docker
 cd nvidia-docker
 sudo make install
+sudo nvidia-docker volume setup
 ```
 
 Get our software:
@@ -37,6 +41,6 @@ git lfs pull
 Run the container:
 
 ```
-sudo nvidia-docker run -d -p 8888:8888 mdagost/pug_classifier_gpu_notebook
+sudo nvidia-docker run -d -p 8888:8888 -v /home/ubuntu/pug_classifier:/home/ubuntu/pug_classifier mdagost/pug_classifier_gpu_notebook
 ```
 
