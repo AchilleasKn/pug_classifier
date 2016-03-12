@@ -1,0 +1,13 @@
+FROM rocker/shiny
+MAINTAINER mdagost@gmail.com
+
+RUN DEBIAN_FRONTEND=noninteractive apt-get update -y 
+RUN apt-get install -y libssl-dev
+
+RUN R -e "install.packages(c('httr'), repos='http://cran.rstudio.com/')"
+
+COPY ui.R /srv/shiny-server/pugs/ui.R
+COPY server.R /srv/shiny-server/pugs/server.R
+
+EXPOSE 3838
+CMD ["/usr/bin/shiny-server.sh"]

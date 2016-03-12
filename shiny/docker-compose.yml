@@ -1,0 +1,17 @@
+shiny-server:
+  restart: always
+  image: mdagost/pug_classifier_shiny
+  expose:
+    - "3838"
+  ports:
+    - "3838:3838"
+  links:
+    - flask-api:flask-api
+
+flask-api:
+  restart: always
+  image: mdagost/pug_classifier_flask
+  expose:
+    - "5000"
+  ports:
+    - "5000:5000"
