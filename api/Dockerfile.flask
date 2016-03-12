@@ -2,3 +2,7 @@ FROM mdagost/pug_classifier_notebook
 MAINTAINER mdagost@gmail.com
 
 RUN pip install flask
+
+COPY flask_scoring_api.py /home/ubuntu/
+
+CMD python /home/ubuntu/flask_scoring_api.py
