@@ -1,0 +1,4 @@
+FROM mdagost/pug_classifier_notebook
+MAINTAINER mdagost@gmail.com
+
+RUN pip install flask
