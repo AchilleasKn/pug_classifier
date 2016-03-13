@@ -6,15 +6,11 @@ shinyUI(fluidPage(
     
     sidebarLayout(
         sidebarPanel(
-            sliderInput("bins",
-                        "Number of bins:",
-                        min = 1,
-                        max = 50,
-                        value = 30)
+            textInput("img_url", label="Image URL:", value="https://upload.wikimedia.org/wikipedia/commons/d/d7/Sad-pug.jpg")
             ),
         
         mainPanel(
-            plotOutput("distPlot")
+            imageOutput("dog_image")
             )
         )
 ))
