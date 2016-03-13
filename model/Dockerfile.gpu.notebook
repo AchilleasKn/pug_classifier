@@ -23,7 +23,14 @@ RUN pip3 install matplotlib seaborn
 RUN pip3 install jupyter
 RUN ipython3 kernel install
 
+RUN locale-gen en_US.UTF-8
+ENV LANG en_US.UTF-8
+ENV LANGUAGE en_US:en
+ENV LC_ALL en_US.UTF-8
+
 RUN echo "[global]\nmode=FAST_RUN\ndevice=gpu\nfloatX=float32\n" > .theanorc
+
+RUN apt-get install -y imagemagick
 
 ENV THEANO_FLAGS mode=FAST_RUN,device=gpu,floatX=float32
 EXPOSE 8888
