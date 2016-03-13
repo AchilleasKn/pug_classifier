@@ -9,9 +9,12 @@ shinyServer(function(input, output) {
         # This file will be removed later by renderImage
         outfile <- tempfile()
 
-        #cat(input$image_url, file=stderr())
         # get the image
         download.file(input$img_url, outfile, mode="wb")
+
+        # convert it
+        cmd<-paste("convert ", outfile, " -resize 256x256^ -gravity Center -crop 256x256+0+0 +repage ", outfile)
+        system(cmd)
 
          # Return a list containing the filename
         list(src = outfile,
