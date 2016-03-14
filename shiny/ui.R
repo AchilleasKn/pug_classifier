@@ -1,8 +1,8 @@
 library(shiny)
 
-shinyUI(fluidPage(
+shinyUI(fluidPage(theme="app.css",
     
-    titlePanel("Is It a Pug?"),
+    titlePanel("Is It a Pug or a Golden Retriever?"),
     
     sidebarLayout(
         sidebarPanel(
@@ -10,7 +10,8 @@ shinyUI(fluidPage(
             ),
         
         mainPanel(
-            imageOutput("dog_image")
+            imageOutput("dog_image"),
+            textOutput("pug_score_message")
             )
         )
 ))

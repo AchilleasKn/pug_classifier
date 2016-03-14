@@ -21,6 +21,7 @@ RUN pip3 install keras
 RUN pip3 install git+git://github.com/Theano/Theano.git --upgrade --no-deps
 RUN pip3 install matplotlib seaborn 
 RUN pip3 install jupyter
+RUN pip3 install h5py
 RUN ipython3 kernel install
 
 RUN locale-gen en_US.UTF-8
