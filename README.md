@@ -2,8 +2,9 @@
 
 Repo for the Strata+Hadoop World 2016 talk ["Docker for Data Scientists"](http://conferences.oreilly.com/strata/hadoop-big-data-ca/public/schedule/detail/47475).
 
-CPU
-===
+##Introduction
+
+##CPU
 Work locally, or create an ec2 instance:
 
 ```
@@ -36,8 +37,7 @@ eval $(docker-machine env awsnotebook)
 docker run -d -p 8888:8888 -v /home/ubuntu/pug_classifier:/home/jovyan/work mdagost/pug_classifier_notebook
 ```
 
-GPU
-===
+##GPU
 Create a GPU instance:
 
 ```
