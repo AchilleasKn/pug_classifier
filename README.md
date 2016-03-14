@@ -1,5 +1,4 @@
-# pug_classifier ![pug](http://textemoticons.net/wp-content/uploads/2013/03/pugstanding.gif)
-Deep Learning for Pugs
+# Deep Learning for Pugs ![pug](http://textemoticons.net/wp-content/uploads/2013/03/pugstanding.gif)
 
 CPU
 ===
