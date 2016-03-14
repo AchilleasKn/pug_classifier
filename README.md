@@ -1,4 +1,6 @@
-# Deep Learning for Pugs ![pug](http://textemoticons.net/wp-content/uploads/2013/03/pugstanding.gif)
+# Docker and Deep Learning for Pugs ![pug](http://textemoticons.net/wp-content/uploads/2013/03/pugstanding.gif)
+
+Repo for the Strata+Hadoop World 2016 talk ["Docker for Data Scientists"](http://conferences.oreilly.com/strata/hadoop-big-data-ca/public/schedule/detail/47475).
 
 CPU
 ===
