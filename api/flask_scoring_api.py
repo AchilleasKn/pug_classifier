@@ -18,7 +18,7 @@ def score():
         abort(400)
     img_bytes = BytesIO(base64.b64decode(request.json['image']))
     img = np.array(Image.open(img_bytes)).transpose()
-    img = img.reshape((1, 3, 256, 256))
+    img = img.reshape((1, 3, 224, 224))
     pug_score = model.predict(img)
     print(pug_score)
     return jsonify({'pug_score': str(pug_score[0, 1])})
