@@ -34,15 +34,15 @@ shinyServer(function(input, output) {
 
         if(pug_score >= 0.6){
             output$pug_score_message<-renderText({
-                paste('Yep!!  Definitely a pug!! (', pug_score_percent_string, '%)')
+                paste0('Yep!!  Definitely a pug!! (', pug_score_percent_string, '%)')
             });
         } else if(pug_score <=0.4){
             output$pug_score_message<-renderText({
-                paste('Nope.  Definitely a golden retriever.  Boooo!! (', pug_score_percent_string, '%)')
+                paste0('Nope.  Definitely a golden retriever.  Boooo!! (', pug_score_percent_string, '%)')
             });
         } else {
             output$pug_score_message<-renderText({
-                paste('Not really sure. (', pug_score_percent_string, '%)')
+                paste0('Not really sure. (', pug_score_percent_string, '%)')
             });
         }
         
