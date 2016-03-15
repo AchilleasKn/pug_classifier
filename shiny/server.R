@@ -5,11 +5,15 @@ library(jsonlite)
 
 shinyServer(function(input, output) {
 
+    values<-reactiveValues(pug_score_message="")
+
+    output$pug_score_message<-renderText({
+        values$pug_score_message
+    })
+
     output$dog_image<-renderImage({
         
-        output$pug_score_message<-renderText({
-            ''
-        });
+        values$pug_score_message<-""
         
         # A temp file to save the output.
         # This file will be removed later by renderImage
@@ -33,17 +37,11 @@ shinyServer(function(input, output) {
         pug_score_percent_string<-format(100*pug_score, digits=3)
 
         if(pug_score >= 0.6){
-            output$pug_score_message<-renderText({
-                paste0('Yep!!  Definitely a pug!! (', pug_score_percent_string, '%)')
-            });
+            values$pug_score_message<-paste0('Yep!!  Definitely a pug!! (', pug_score_percent_string, '%)')
         } else if(pug_score <=0.4){
-            output$pug_score_message<-renderText({
-                paste0('Nope.  Definitely a golden retriever.  Boooo!! (', pug_score_percent_string, '%)')
-            });
+            values$pug_score_message<-paste0('Nope.  Definitely a golden retriever.  Boooo!! (', pug_score_percent_string, '%)')
         } else {
-            output$pug_score_message<-renderText({
-                paste0('Not really sure. (', pug_score_percent_string, '%)')
-            });
+            values$pug_score_message<-paste0('Not really sure. (', pug_score_percent_string, '%)')
         }
         
          # Return a list containing the filename
