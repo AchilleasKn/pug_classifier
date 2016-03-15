@@ -2,7 +2,7 @@ library(shiny)
 
 shinyUI(fluidPage(theme="app.css",
     
-    titlePanel("Is It a Pug or a Golden Retriever?"),
+    titlePanel("Is It a Pug?"),
     
     sidebarLayout(
         sidebarPanel(
