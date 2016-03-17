@@ -4,6 +4,14 @@ Repo for the Strata+Hadoop World 2016 talk ["Docker for Data Scientists"](http:/
 
 ##Introduction
 
+##Docker Images
+
+- [Modeling: python3 + theano + jupyter notebook for the CPU](https://hub.docker.com/r/mdagost/pug_classifier_notebook/)
+- [Modeling: python3 + theano + jupyter notebook for the GPU](https://hub.docker.com/r/mdagost/pug_classifier_gpu_notebook/)
+- [API: python3 + theano + jupyter notebook + flask](https://hub.docker.com/r/mdagost/pug_classifier_flask/)
+- [Frontend: R + shiny](https://hub.docker.com/r/mdagost/pug_classifier_shiny/)
+
+
 ##CPU
 Work locally, or create an ec2 instance:
 
