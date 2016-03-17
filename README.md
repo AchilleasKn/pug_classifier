@@ -12,7 +12,7 @@ Repo for the Strata+Hadoop World 2016 talk ["Docker for Data Scientists"](http:/
 - [Frontend: R + shiny](https://hub.docker.com/r/mdagost/pug_classifier_shiny/)
 
 
-##CPU
+##Interactive Notebook and Modeling on the CPU
 Work locally, or create an ec2 instance:
 
 ```
@@ -45,7 +45,7 @@ eval $(docker-machine env awsnotebook)
 docker run -d -p 8888:8888 -v /home/ubuntu/pug_classifier:/home/jovyan/work mdagost/pug_classifier_notebook
 ```
 
-##GPU
+##Interactive Notebook and Modeling on the GPU
 Create a GPU instance:
 
 ```
@@ -86,3 +86,33 @@ Run the container:
 sudo nvidia-docker run -d -p 8888:8888 -v /home/ubuntu/pug_classifier:/home/ubuntu mdagost/pug_classifier_gpu_notebook
 ```
 
+##Shiny App Hitting the Flask API
+
+```
+cd shiny/
+docker-compose up
+```
+Get the IP of the docker VM:
+
+```
+docker-machine env default
+```
+
+Visit http://{{IP}}:3838/pugs/ and voila!
+
+To run the app on AWS:
+
+```
+docker-machine create --driver amazonec2 --amazonec2-access-key XXXX --amazonec2-secret-key XXXX --amazonec2-root-size 100 --amazonec2-instance-type m3.large awsapp
+eval $(docker-machine env awsapp)
+cd shiny
+docker-compose up
+```
+
+Get the IP of the AWS instance:
+
+```
+docker-machine env awsapp
+```
+
+Visit http://{{IP}}:3838/pugs/ and voila!
