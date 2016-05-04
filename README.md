@@ -92,12 +92,12 @@ sudo nvidia-docker volume setup
 Get our software:
 
 ```
-curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
-sudo apt-get install git-lfs
-git lfs install
 git clone https://github.com/mdagost/pug_classifier.git
 cd pug_classifier
-git lfs pull
+curl http://pug-classifier.s3.amazonaws.com/cnn_pug_model_architecture.json > api/cnn_pug_model_architecture.json
+curl http://pug-classifier.s3.amazonaws.com/cnn_pug_model_weights.h5 > api/cnn_pug_model_weights.h5
+curl http://pug-classifier.s3.amazonaws.com/pugs_vs_golden_retrvrs_data.pkl.gz > data/pugs_vs_golden_retrvrs_data.pkl.gz
+curl http://pug-classifier.s3.amazonaws.com/vgg16_weights.h5 > model/vgg16_weights.h5
 ```
 
 Run the container:
