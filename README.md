@@ -2,7 +2,7 @@
 
 Repo for the Strata+Hadoop World 2016 talk ["Docker for Data Scientists"](http://conferences.oreilly.com/strata/hadoop-big-data-ca/public/schedule/detail/47475).
 
-##Introduction
+## Introduction
 
 This repository comprises an end-to-end example of doing data science with docker.  We begin by doing interactive analysis and modeling in a jupyter notebook.  The task at hand is building a deep convolutional neural network that can recognize photos of pugs vs. photos of golden retrievers with transfer learning.  That is, we take [a pre-trained deep convolutional network](https://gist.github.com/baraldilorenzo/07d7802847aaad0a35d3) and retrain the last layer for our particular pug-recognition task.  Training can take place using docker on a CPU or on a GPU for speed.
 
@@ -10,7 +10,7 @@ Once the model is built and the weights are saved, we deploy a simple web app.  
 
 The data comes from URL's from [ImageNet](http://www.image-net.org/).  The `/data` directory of the project has the URL's as well as code for downloading them and normalizing the images.  There's also a gzipped pickle file stored in Git LFS so the user doesn't need to download all of the original images.
 
-##Docker Images
+## Docker Images
 
 - [Modeling: python3 + theano + jupyter notebook for the CPU](https://hub.docker.com/r/mdagost/pug_classifier_notebook/)
 - [Modeling: python3 + theano + jupyter notebook for the GPU](https://hub.docker.com/r/mdagost/pug_classifier_gpu_notebook/)
@@ -18,7 +18,7 @@ The data comes from URL's from [ImageNet](http://www.image-net.org/).  The `/dat
 - [Frontend: R + shiny](https://hub.docker.com/r/mdagost/pug_classifier_shiny/)
 
 
-##Interactive Notebook and Modeling on the CPU
+## Interactive Notebook and Modeling on the CPU
 Work locally, or create an ec2 instance:
 
 ```
