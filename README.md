@@ -59,7 +59,7 @@ docker-machine env awsnotebook
 
 Visit http://{{IP}}:8888/ to use the notebook.  **Note:** if you're using AWS you may have to add an inbound rule to the docker-machine security group opening up port 8888.
 
-##Interactive Notebook and Modeling on the GPU
+## Interactive Notebook and Modeling on the GPU
 Create a GPU instance:
 
 ```
@@ -115,7 +115,7 @@ docker-machine env awsnotebook
 Visit http://{{IP}}:8888/ to use the notebook. **Note:** if you're using AWS you may have to add an inbound rule to the docker-machine security group opening up port 8888.
 
 
-##Shiny App Hitting the Flask API
+## Shiny App Hitting the Flask API
 
 ```
 cd shiny/
